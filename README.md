@@ -23,6 +23,23 @@ You can even save defaults by setting the property:
 
     [GVUserDefaults standardUserDefaults].userName = @"myusername";
 
+### Key prefix
+The keys in NSUserDefaults are the same name as your properties. If you'd like to prefix them, add a `prefix` method to your category:
+
+    - (NSString *)prefix {
+        return @"NSUSerDefault:";
+    }
+
+### Registering defaults
+Registering defaults is done as usual, on NSUserDefaults directly.
+
+    NSDictionary *defaults = @{
+        @"NSUSerDefault:userName": @"default",
+        @"NSUSerDefault:userId": @1
+    };
+
+    [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
+
 
 ## Install
 Install via [CocoaPods](http://cocoapods.org) (`pod GVUserDefaults`) or drag the code in GVUserDefaults to your project.
