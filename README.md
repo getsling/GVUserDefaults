@@ -31,7 +31,7 @@ The keys in NSUserDefaults are the same name as your properties. If you'd like t
     }
 
 ### Registering defaults
-Registering defaults is done as usual, on NSUserDefaults directly.
+Registering defaults is done as usual, on NSUserDefaults directly (use the same prefix, if any!).
 
     NSDictionary *defaults = @{
         @"NSUSerDefault:userName": @"default",
