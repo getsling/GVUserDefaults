@@ -1,5 +1,6 @@
 # GVUserDefaults - NSUserDefaults access via properties
 
+Tired of writing all that code to get and set defaults in NSUserDefaults? Want to have code completion and compiler checks by using properties instead?
 
 ## Usage
 Create a category on `GVUserDefaults`, add some properties in the .h file and make them `@dynamic` in the .m file.
