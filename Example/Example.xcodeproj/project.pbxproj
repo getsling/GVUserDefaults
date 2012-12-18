@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A0AA2A61681314800F83F09 /* NoPrefixTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A0AA2A51681314800F83F09 /* NoPrefixTests.m */; };
 		0AD6F3601680DCD400E13802 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD6F35F1680DCD400E13802 /* UIKit.framework */; };
 		0AD6F3621680DCD400E13802 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD6F3611680DCD400E13802 /* Foundation.framework */; };
 		0AD6F3641680DCD400E13802 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD6F3631680DCD400E13802 /* CoreGraphics.framework */; };
@@ -22,7 +23,7 @@
 		0AD6F3B31680DDD000E13802 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AD6F3A81680DDD000E13802 /* Default@2x.png */; };
 		0AD6F3B51680DDD000E13802 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F3AE1680DDD000E13802 /* main.m */; };
 		0AD6F3B91680DE0600E13802 /* GVUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F3B81680DE0600E13802 /* GVUserDefaults.m */; };
-		0AD6F3C41680DF3900E13802 /* GVUserDefaults+Mine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F3C31680DF3800E13802 /* GVUserDefaults+Mine.m */; };
+		0AD6F3C41680DF3900E13802 /* GVUserDefaults+Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F3C31680DF3800E13802 /* GVUserDefaults+Properties.m */; };
 		0AD6F3DD168123C900E13802 /* CHANGELOG in Resources */ = {isa = PBXBuildFile; fileRef = 0AD6F3DA168123C800E13802 /* CHANGELOG */; };
 		0AD6F3DE168123C900E13802 /* GVUserDefaults.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 0AD6F3DB168123C800E13802 /* GVUserDefaults.podspec */; };
 		0AD6F3DF168123C900E13802 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0AD6F3DC168123C800E13802 /* README.md */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A0AA2A41681314800F83F09 /* NoPrefixTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoPrefixTests.h; sourceTree = "<group>"; };
+		0A0AA2A51681314800F83F09 /* NoPrefixTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoPrefixTests.m; sourceTree = "<group>"; };
 		0AD6F35B1680DCD400E13802 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AD6F35F1680DCD400E13802 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0AD6F3611680DCD400E13802 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -60,8 +63,8 @@
 		0AD6F3AE1680DDD000E13802 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
 		0AD6F3B71680DE0600E13802 /* GVUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVUserDefaults.h; sourceTree = "<group>"; };
 		0AD6F3B81680DE0600E13802 /* GVUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVUserDefaults.m; sourceTree = "<group>"; };
-		0AD6F3C21680DF3800E13802 /* GVUserDefaults+Mine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GVUserDefaults+Mine.h"; sourceTree = "<group>"; };
-		0AD6F3C31680DF3800E13802 /* GVUserDefaults+Mine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GVUserDefaults+Mine.m"; sourceTree = "<group>"; };
+		0AD6F3C21680DF3800E13802 /* GVUserDefaults+Properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GVUserDefaults+Properties.h"; sourceTree = "<group>"; };
+		0AD6F3C31680DF3800E13802 /* GVUserDefaults+Properties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GVUserDefaults+Properties.m"; sourceTree = "<group>"; };
 		0AD6F3DA168123C800E13802 /* CHANGELOG */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CHANGELOG; path = ../CHANGELOG; sourceTree = "<group>"; };
 		0AD6F3DB168123C800E13802 /* GVUserDefaults.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GVUserDefaults.podspec; path = ../GVUserDefaults.podspec; sourceTree = "<group>"; };
 		0AD6F3DC168123C800E13802 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -128,8 +131,8 @@
 		0AD6F3651680DCD400E13802 /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				0AD6F3C21680DF3800E13802 /* GVUserDefaults+Mine.h */,
-				0AD6F3C31680DF3800E13802 /* GVUserDefaults+Mine.m */,
+				0AD6F3C21680DF3800E13802 /* GVUserDefaults+Properties.h */,
+				0AD6F3C31680DF3800E13802 /* GVUserDefaults+Properties.m */,
 				0AD6F3A41680DDD000E13802 /* AppDelegate.h */,
 				0AD6F3A51680DDD000E13802 /* AppDelegate.m */,
 				0AD6F3A61680DDD000E13802 /* Default-568h@2x.png */,
@@ -148,6 +151,8 @@
 			children = (
 				0AD6F3891680DCD400E13802 /* ExampleTests.h */,
 				0AD6F38A1680DCD400E13802 /* ExampleTests.m */,
+				0A0AA2A41681314800F83F09 /* NoPrefixTests.h */,
+				0A0AA2A51681314800F83F09 /* NoPrefixTests.m */,
 				0AD6F3841680DCD400E13802 /* Supporting Files */,
 			);
 			path = ExampleTests;
@@ -295,7 +300,7 @@
 				0AD6F3B01680DDD000E13802 /* AppDelegate.m in Sources */,
 				0AD6F3B51680DDD000E13802 /* main.m in Sources */,
 				0AD6F3B91680DE0600E13802 /* GVUserDefaults.m in Sources */,
-				0AD6F3C41680DF3900E13802 /* GVUserDefaults+Mine.m in Sources */,
+				0AD6F3C41680DF3900E13802 /* GVUserDefaults+Properties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AD6F38B1680DCD400E13802 /* ExampleTests.m in Sources */,
+				0A0AA2A61681314800F83F09 /* NoPrefixTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

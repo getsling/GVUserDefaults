@@ -1,5 +1,5 @@
 //
-//  GVUserDefaults+Mine.h
+//  GVUserDefaults+Properties.h
 //  GVUserDefaults
 //
 //  Created by Kevin Renskers on 18-12-12.
@@ -8,7 +8,7 @@
 
 #import "GVUserDefaults.h"
 
-@interface GVUserDefaults (Mine)
+@interface GVUserDefaults (Properties)
 
 @property NSString *userName;
 @property NSNumber *userId;

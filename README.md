@@ -6,18 +6,18 @@ Tired of writing all that code to get and set defaults in NSUserDefaults? Want t
 Create a category on `GVUserDefaults`, add some properties in the .h file and make them `@dynamic` in the .m file.
 
     // .h
-    @interface GVUserDefaults (Mine)
+    @interface GVUserDefaults (Properties)
     @property NSString *userName;
     @property NSNumber *userId;
     @end
 
     // .m
-    @implementation GVUserDefaults (Mine)
+    @implementation GVUserDefaults (Properties)
     @dynamic userName;
     @dynamic userId;
     @end
 
-Now, instead of using `[[NSUserDefaults standardUserDefaults] objectForKey:@"NSUSerDefault:userName"]`, you can simply use `[GVUserDefaults standardUserDefaults].userName`.
+Now, instead of using `[[NSUserDefaults standardUserDefaults] objectForKey:@"userName"]`, you can simply use `[GVUserDefaults standardUserDefaults].userName`.
 
 You can even save defaults by setting the property:
 
