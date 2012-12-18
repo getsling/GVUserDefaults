@@ -42,7 +42,7 @@ Registering defaults is done as usual, on NSUserDefaults directly (use the same 
 
 
 ## Install
-Install via [CocoaPods](http://cocoapods.org) (`pod GVUserDefaults`) or drag the code in GVUserDefaults to your project.
+Install via [CocoaPods](http://cocoapods.org) (`pod 'GVUserDefaults'`) or drag the code in GVUserDefaults to your project.
 
 
 ## Issues and questions
