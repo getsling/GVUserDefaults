@@ -10,8 +10,8 @@
 #import "GVUserDefaults.h"
 
 @interface GVUserDefaults (NoPrefix)
-@property NSString *userName;
-@property NSNumber *userId;
+@property (nonatomic, weak) NSString *userName;
+@property (nonatomic, weak) NSNumber *userId;
 @end
 
 @implementation GVUserDefaults (NoPrefix)

@@ -7,8 +7,8 @@ Create a category on `GVUserDefaults`, add some properties in the .h file and ma
 
     // .h
     @interface GVUserDefaults (Properties)
-    @property NSString *userName;
-    @property NSNumber *userId;
+    @property (nonatomic, weak) NSString *userName;
+    @property (nonatomic, weak) NSNumber *userId;
     @end
 
     // .m
