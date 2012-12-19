@@ -56,7 +56,6 @@ void accessorSetter(id self, SEL _cmd, id newValue) {
 
     // Set value of the key anID to newValue
     [[NSUserDefaults standardUserDefaults] setObject:newValue forKey:key];
-    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end

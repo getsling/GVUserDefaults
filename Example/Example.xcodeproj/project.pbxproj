@@ -27,6 +27,9 @@
 		0AD6F3DD168123C900E13802 /* CHANGELOG in Resources */ = {isa = PBXBuildFile; fileRef = 0AD6F3DA168123C800E13802 /* CHANGELOG */; };
 		0AD6F3DE168123C900E13802 /* GVUserDefaults.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 0AD6F3DB168123C800E13802 /* GVUserDefaults.podspec */; };
 		0AD6F3DF168123C900E13802 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0AD6F3DC168123C800E13802 /* README.md */; };
+		0AD6F3F21681BEDF00E13802 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F3F01681BEDF00E13802 /* ViewController.m */; };
+		0AD6F3F31681BEDF00E13802 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AD6F3F11681BEDF00E13802 /* ViewController.xib */; };
+		0AD6F3F71681C17300E13802 /* CodeTimestamps.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F3F61681C17300E13802 /* CodeTimestamps.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,11 @@
 		0AD6F3DA168123C800E13802 /* CHANGELOG */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CHANGELOG; path = ../CHANGELOG; sourceTree = "<group>"; };
 		0AD6F3DB168123C800E13802 /* GVUserDefaults.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GVUserDefaults.podspec; path = ../GVUserDefaults.podspec; sourceTree = "<group>"; };
 		0AD6F3DC168123C800E13802 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		0AD6F3EF1681BEDF00E13802 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		0AD6F3F01681BEDF00E13802 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0AD6F3F11681BEDF00E13802 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		0AD6F3F51681C17300E13802 /* CodeTimestamps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeTimestamps.h; sourceTree = "<group>"; };
+		0AD6F3F61681C17300E13802 /* CodeTimestamps.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeTimestamps.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +139,8 @@
 		0AD6F3651680DCD400E13802 /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				0AD6F3F51681C17300E13802 /* CodeTimestamps.h */,
+				0AD6F3F61681C17300E13802 /* CodeTimestamps.m */,
 				0AD6F3C21680DF3800E13802 /* GVUserDefaults+Properties.h */,
 				0AD6F3C31680DF3800E13802 /* GVUserDefaults+Properties.m */,
 				0AD6F3A41680DDD000E13802 /* AppDelegate.h */,
@@ -141,6 +151,9 @@
 				0AD6F3A91680DDD000E13802 /* Example-Info.plist */,
 				0AD6F3AA1680DDD000E13802 /* Example-Prefix.pch */,
 				0AD6F3AE1680DDD000E13802 /* main.m */,
+				0AD6F3EF1681BEDF00E13802 /* ViewController.h */,
+				0AD6F3F01681BEDF00E13802 /* ViewController.m */,
+				0AD6F3F11681BEDF00E13802 /* ViewController.xib */,
 				0AD6F3A11680DDD000E13802 /* en.lproj */,
 			);
 			name = Example;
@@ -263,6 +276,7 @@
 				0AD6F3DD168123C900E13802 /* CHANGELOG in Resources */,
 				0AD6F3DE168123C900E13802 /* GVUserDefaults.podspec in Resources */,
 				0AD6F3DF168123C900E13802 /* README.md in Resources */,
+				0AD6F3F31681BEDF00E13802 /* ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +315,8 @@
 				0AD6F3B51680DDD000E13802 /* main.m in Sources */,
 				0AD6F3B91680DE0600E13802 /* GVUserDefaults.m in Sources */,
 				0AD6F3C41680DF3900E13802 /* GVUserDefaults+Properties.m in Sources */,
+				0AD6F3F21681BEDF00E13802 /* ViewController.m in Sources */,
+				0AD6F3F71681C17300E13802 /* CodeTimestamps.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,7 +381,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -386,7 +402,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -399,6 +415,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example-Prefix.pch";
 				INFOPLIST_FILE = "Example-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -410,6 +427,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example-Prefix.pch";
 				INFOPLIST_FILE = "Example-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

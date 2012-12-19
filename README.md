@@ -41,6 +41,11 @@ Registering defaults is done as usual, on NSUserDefaults directly (use the same 
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
 
 
+### Performance
+The getter is about 3 times as slow as directly using NSUSerDefaults, but we're talking about fractions of a millisecond (0.22 ms vs 0.65 ms on an iPod Touch 4th gen). The setter is about 3 times as slow as well (0.20 ms vs 0.61 ms). 
+The numbers vary a bit from device to device and from run to run, but it always seems to be about 1.5 to 3 times as slow. For example on an iPhone 4 the setter takes 0.77 ms vs 0.5 ms when you do it natively.
+
+
 ## Install
 Install via [CocoaPods](http://cocoapods.org) (`pod 'GVUserDefaults'`) or drag the code in the GVUserDefaults subfolder to your project.
 
