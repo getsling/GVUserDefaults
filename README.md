@@ -23,6 +23,9 @@ You can even save defaults by setting the property:
 
     [GVUserDefaults standardUserDefaults].userName = @"myusername";
 
+### Objects only
+At this moment only objects can be stored, so no integers or booleans. Just wrap them in an NSNumber.
+
 ### Key prefix
 The keys in NSUserDefaults are the same name as your properties. If you'd like to prefix them, add a `prefix` method to your category:
 
