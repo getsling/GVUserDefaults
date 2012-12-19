@@ -10,8 +10,9 @@
 
 @implementation GVUserDefaults (Properties)
 
-- (NSString *)prefix {
-    return @"NSUSerDefault:";
+- (NSString *)transformKey:(NSString *)key {
+    key = [key stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[key substringToIndex:1] uppercaseString]];
+    return [NSString stringWithFormat:@"NSUserDefault%@", key];
 }
 
 @dynamic userName;

@@ -15,18 +15,18 @@
     [super setUp];
 
     NSDictionary *defaults = @{
-        @"NSUSerDefault:userName": @"default",
-        @"NSUSerDefault:userId": @1
+        @"NSUserDefaultUserName": @"default",
+        @"NSUserDefaultUserId": @1
     };
 
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NSUSerDefault:userName"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NSUSerDefault:userId"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NSUserDefaultUserName"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NSUserDefaultUserId"];
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
 }
 
 - (void)tearDown {
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NSUSerDefault:userName"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NSUSerDefault:userId"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NSUserDefaultUserName"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NSUserDefaultUserId"];
     [super tearDown];
 }
 
@@ -44,8 +44,8 @@
 }
 
 - (void)testGetters {
-    STAssertEqualObjects([GVUserDefaults standardUserDefaults].userName, [[NSUserDefaults standardUserDefaults] objectForKey:@"NSUSerDefault:userName"], nil);
-    STAssertEqualObjects([GVUserDefaults standardUserDefaults].userId, [[NSUserDefaults standardUserDefaults] objectForKey:@"NSUSerDefault:userId"], nil);
+    STAssertEqualObjects([GVUserDefaults standardUserDefaults].userName, [[NSUserDefaults standardUserDefaults] objectForKey:@"NSUserDefaultUserName"], nil);
+    STAssertEqualObjects([GVUserDefaults standardUserDefaults].userId, [[NSUserDefaults standardUserDefaults] objectForKey:@"NSUserDefaultUserId"], nil);
 }
 
 @end

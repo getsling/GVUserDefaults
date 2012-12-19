@@ -27,18 +27,19 @@ You can even save defaults by setting the property:
 At this moment only objects can be stored, so no integers or booleans. Just wrap them in an NSNumber.
 
 ### Key prefix
-The keys in NSUserDefaults are the same name as your properties. If you'd like to prefix them, add a `prefix` method to your category:
+The keys in NSUserDefaults are the same name as your properties. If you'd like to prefix or alter them, add a `transformKey:` method to your category. For example, to turn "userName" into "NSUserDefaultUserName":
 
-    - (NSString *)prefix {
-        return @"NSUSerDefault:";
+    - (NSString *)transformKey:(NSString *)key {
+        key = [key stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[key substringToIndex:1] uppercaseString]];
+        return [NSString stringWithFormat:@"NSUserDefault%@", key];
     }
 
 ### Registering defaults
 Registering defaults is done as usual, on NSUserDefaults directly (use the same prefix, if any!).
 
     NSDictionary *defaults = @{
-        @"NSUSerDefault:userName": @"default",
-        @"NSUSerDefault:userId": @1
+        @"NSUSerDefaultUserName": @"default",
+        @"NSUSerDefaultUserId": @1
     };
 
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];

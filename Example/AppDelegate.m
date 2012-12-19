@@ -13,12 +13,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSDictionary *defaults = @{
-        @"NSUSerDefault:userName": @"default",
-        @"NSUSerDefault:userId": @1
+        @"NSUserDefaultUserName": @"default",
+        @"NSUserDefaultUserId": @1
     };
 
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NSUSerDefault:userName"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NSUSerDefault:userId"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NSUserDefaultUserName"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NSUserDefaultUserId"];
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

@@ -21,7 +21,7 @@
 + (BOOL)resolveInstanceMethod:(SEL)aSEL {
     NSString *method = NSStringFromSelector(aSEL);
 
-    if ([method isEqualToString:@"prefix"]) {
+    if ([method isEqualToString:@"transformKey"]) {
         // Prevent endless loop for possibly non-existing prefix method
         return [super resolveInstanceMethod:aSEL];
     }
@@ -35,16 +35,17 @@
     }
 }
 
-- (NSString *)getPrefix {
-    if ([self respondsToSelector:@selector(prefix)]) {
-        return [self performSelector:@selector(prefix)];
+- (NSString *)_transformKey:(NSString *)key {
+    if ([self respondsToSelector:@selector(transformKey:)]) {
+        return [self performSelector:@selector(transformKey:) withObject:key];
     }
 
-    return @"";
+    return key;
 }
 
 id accessorGetter(id self, SEL _cmd) {
-    NSString *key = [NSString stringWithFormat:@"%@%@", [self getPrefix], NSStringFromSelector(_cmd)];
+    NSString *key = NSStringFromSelector(_cmd);
+    key = [self _transformKey:key];
     return [[NSUserDefaults standardUserDefaults] objectForKey:key];
 }
 
@@ -52,7 +53,7 @@ void accessorSetter(id self, SEL _cmd, id newValue) {
     NSString *method = NSStringFromSelector(_cmd);
     NSString *key = [[method stringByReplacingCharactersInRange:NSMakeRange(0, 3) withString:@""] stringByReplacingOccurrencesOfString:@":" withString:@""];
     key = [key stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[key substringToIndex:1] lowercaseString]];
-    key = [NSString stringWithFormat:@"%@%@", [self getPrefix], key];
+    key = [self _transformKey:key];
 
     // Set value of the key anID to newValue
     [[NSUserDefaults standardUserDefaults] setObject:newValue forKey:key];
