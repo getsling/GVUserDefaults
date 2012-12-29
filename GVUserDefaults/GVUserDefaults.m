@@ -9,13 +9,36 @@
 #import "GVUserDefaults.h"
 #import <objc/runtime.h>
 
+@interface GVUserDefaults ()
+@property (nonatomic, strong) NSMutableDictionary *propertiesCache;
+@end
+
 @implementation GVUserDefaults
 
 + (GVUserDefaults *)standardUserDefaults {
     static dispatch_once_t pred;
     static GVUserDefaults *sharedInstance = nil;
-    dispatch_once(&pred, ^{ sharedInstance = [[self alloc] init]; });
+    dispatch_once(&pred, ^{
+		sharedInstance = [[self alloc] init];
+	});
     return sharedInstance;
+}
+
+- (id)init
+{
+	self = [super init];
+	if (!self) {
+		return nil;
+	}
+	
+	self.propertiesCache = [NSMutableDictionary dictionary];
+	
+	return self;
+}
+
+- (void)dealloc
+{
+	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 + (BOOL)resolveInstanceMethod:(SEL)aSEL {
@@ -43,17 +66,27 @@
     return key;
 }
 
-id accessorGetter(id self, SEL _cmd) {
+id accessorGetter(GVUserDefaults *self, SEL _cmd) {
     NSString *key = NSStringFromSelector(_cmd);
     key = [self _transformKey:key];
-    return [[NSUserDefaults standardUserDefaults] objectForKey:key];
+	
+	if (self.propertiesCache[key]) {
+		return self.propertiesCache[key];
+	}
+	
+	self.propertiesCache[key] = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+
+    return self.propertiesCache[key];
 }
 
-void accessorSetter(id self, SEL _cmd, id newValue) {
+void accessorSetter(GVUserDefaults *self, SEL _cmd, id newValue) {
     NSString *method = NSStringFromSelector(_cmd);
-    NSString *key = [[method stringByReplacingCharactersInRange:NSMakeRange(0, 3) withString:@""] stringByReplacingOccurrencesOfString:@":" withString:@""];
+	
+    NSString *key = [[method substringFromIndex:3] stringByReplacingOccurrencesOfString:@":" withString:@""];
     key = [key stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[key substringToIndex:1] lowercaseString]];
     key = [self _transformKey:key];
+	
+	self.propertiesCache[key] = newValue;
 
     // Set value of the key anID to newValue
     [[NSUserDefaults standardUserDefaults] setObject:newValue forKey:key];
