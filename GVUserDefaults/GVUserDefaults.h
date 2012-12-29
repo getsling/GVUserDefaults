@@ -12,4 +12,8 @@
 
 + (GVUserDefaults *)standardUserDefaults;
 
+@property (nonatomic, strong) NSArray *securePropertyNames;
+
+- (void)save;
+
 @end
