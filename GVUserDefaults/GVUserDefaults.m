@@ -15,7 +15,8 @@
 
 @implementation GVUserDefaults
 
-+ (GVUserDefaults *)standardUserDefaults {
++ (GVUserDefaults *)standardUserDefaults
+{
     static dispatch_once_t pred;
     static GVUserDefaults *sharedInstance = nil;
     dispatch_once(&pred, ^{
@@ -36,12 +37,8 @@
 	return self;
 }
 
-- (void)dealloc
++ (BOOL)resolveInstanceMethod:(SEL)aSEL
 {
-	[[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-+ (BOOL)resolveInstanceMethod:(SEL)aSEL {
     NSString *method = NSStringFromSelector(aSEL);
 
     if ([method isEqualToString:@"transformKey"]) {
