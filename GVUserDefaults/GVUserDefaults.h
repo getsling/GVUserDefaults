@@ -10,8 +10,6 @@
 
 @interface GVUserDefaults : NSObject
 
-+ (GVUserDefaults *)standardUserDefaults;
-
 @property (nonatomic, strong) NSArray *securePropertyNames;
 
 - (void)save;

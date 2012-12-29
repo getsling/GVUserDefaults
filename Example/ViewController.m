@@ -27,32 +27,13 @@
 	MySettings *settings = [MySettings settings];
 	_usernameTextField.text = settings.username;
 	_passwordTextField.text = settings.password;
-//    NSString *test;
-//
-//    LogTimestamp;
-//
-//    test = [[NSUserDefaults standardUserDefaults] objectForKey:@"NSUSerDefault:userName"];
-//
-//    LogTimestamp;
-//
-//    test = [GVUserDefaults standardUserDefaults].userName;
-//
-//    LogTimestamp;
-//
-//    [[NSUserDefaults standardUserDefaults] setObject:@"Hello!" forKey:@"NSUSerDefault:userName"];
-//
-//    LogTimestamp;
-//
-//    [GVUserDefaults standardUserDefaults].userName = @"Hello!";
-//
-//    LogTimestamp;
 }
 
 - (IBAction)_saveButtonHandler:(id)sender
 {
 	MySettings *settings = [MySettings settings];
-	settings.username = _usernameTextField.text;
-	settings.password = _passwordTextField.text;
+	settings.username = _usernameTextField.text.length ? _usernameTextField.text : nil;
+	settings.password = _passwordTextField.text.length ? _passwordTextField.text : nil;
 	[settings save];
 }
 
