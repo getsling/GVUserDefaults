@@ -23,13 +23,15 @@
 		0AD6F3B31680DDD000E13802 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AD6F3A81680DDD000E13802 /* Default@2x.png */; };
 		0AD6F3B51680DDD000E13802 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F3AE1680DDD000E13802 /* main.m */; };
 		0AD6F3B91680DE0600E13802 /* GVUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F3B81680DE0600E13802 /* GVUserDefaults.m */; };
-		0AD6F3C41680DF3900E13802 /* GVUserDefaults+Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F3C31680DF3800E13802 /* GVUserDefaults+Properties.m */; };
 		0AD6F3DD168123C900E13802 /* CHANGELOG in Resources */ = {isa = PBXBuildFile; fileRef = 0AD6F3DA168123C800E13802 /* CHANGELOG */; };
 		0AD6F3DE168123C900E13802 /* GVUserDefaults.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 0AD6F3DB168123C800E13802 /* GVUserDefaults.podspec */; };
 		0AD6F3DF168123C900E13802 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0AD6F3DC168123C800E13802 /* README.md */; };
 		0AD6F3F21681BEDF00E13802 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F3F01681BEDF00E13802 /* ViewController.m */; };
 		0AD6F3F31681BEDF00E13802 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AD6F3F11681BEDF00E13802 /* ViewController.xib */; };
 		0AD6F3F71681C17300E13802 /* CodeTimestamps.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F3F61681C17300E13802 /* CodeTimestamps.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		96DB5E86168EF8C700AAF3FA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96DB5E85168EF8C700AAF3FA /* Security.framework */; };
+		96DB5E89168EFCD400AAF3FA /* MySettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DB5E88168EFCD400AAF3FA /* MySettings.m */; };
+		96DB5E8A168EFCD400AAF3FA /* MySettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DB5E88168EFCD400AAF3FA /* MySettings.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,8 +68,6 @@
 		0AD6F3AE1680DDD000E13802 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
 		0AD6F3B71680DE0600E13802 /* GVUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVUserDefaults.h; sourceTree = "<group>"; };
 		0AD6F3B81680DE0600E13802 /* GVUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVUserDefaults.m; sourceTree = "<group>"; };
-		0AD6F3C21680DF3800E13802 /* GVUserDefaults+Properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GVUserDefaults+Properties.h"; sourceTree = "<group>"; };
-		0AD6F3C31680DF3800E13802 /* GVUserDefaults+Properties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GVUserDefaults+Properties.m"; sourceTree = "<group>"; };
 		0AD6F3DA168123C800E13802 /* CHANGELOG */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CHANGELOG; path = ../CHANGELOG; sourceTree = "<group>"; };
 		0AD6F3DB168123C800E13802 /* GVUserDefaults.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GVUserDefaults.podspec; path = ../GVUserDefaults.podspec; sourceTree = "<group>"; };
 		0AD6F3DC168123C800E13802 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -76,6 +76,9 @@
 		0AD6F3F11681BEDF00E13802 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		0AD6F3F51681C17300E13802 /* CodeTimestamps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeTimestamps.h; sourceTree = "<group>"; };
 		0AD6F3F61681C17300E13802 /* CodeTimestamps.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeTimestamps.m; sourceTree = "<group>"; };
+		96DB5E85168EF8C700AAF3FA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		96DB5E87168EFCD400AAF3FA /* MySettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySettings.h; sourceTree = "<group>"; };
+		96DB5E88168EFCD400AAF3FA /* MySettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySettings.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96DB5E86168EF8C700AAF3FA /* Security.framework in Frameworks */,
 				0AD6F3601680DCD400E13802 /* UIKit.framework in Frameworks */,
 				0AD6F3621680DCD400E13802 /* Foundation.framework in Frameworks */,
 				0AD6F3641680DCD400E13802 /* CoreGraphics.framework in Frameworks */,
@@ -128,6 +132,7 @@
 		0AD6F35E1680DCD400E13802 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				96DB5E85168EF8C700AAF3FA /* Security.framework */,
 				0AD6F35F1680DCD400E13802 /* UIKit.framework */,
 				0AD6F3611680DCD400E13802 /* Foundation.framework */,
 				0AD6F3631680DCD400E13802 /* CoreGraphics.framework */,
@@ -141,8 +146,6 @@
 			children = (
 				0AD6F3F51681C17300E13802 /* CodeTimestamps.h */,
 				0AD6F3F61681C17300E13802 /* CodeTimestamps.m */,
-				0AD6F3C21680DF3800E13802 /* GVUserDefaults+Properties.h */,
-				0AD6F3C31680DF3800E13802 /* GVUserDefaults+Properties.m */,
 				0AD6F3A41680DDD000E13802 /* AppDelegate.h */,
 				0AD6F3A51680DDD000E13802 /* AppDelegate.m */,
 				0AD6F3A61680DDD000E13802 /* Default-568h@2x.png */,
@@ -155,6 +158,8 @@
 				0AD6F3F01681BEDF00E13802 /* ViewController.m */,
 				0AD6F3F11681BEDF00E13802 /* ViewController.xib */,
 				0AD6F3A11680DDD000E13802 /* en.lproj */,
+				96DB5E87168EFCD400AAF3FA /* MySettings.h */,
+				96DB5E88168EFCD400AAF3FA /* MySettings.m */,
 			);
 			name = Example;
 			sourceTree = SOURCE_ROOT;
@@ -314,9 +319,9 @@
 				0AD6F3B01680DDD000E13802 /* AppDelegate.m in Sources */,
 				0AD6F3B51680DDD000E13802 /* main.m in Sources */,
 				0AD6F3B91680DE0600E13802 /* GVUserDefaults.m in Sources */,
-				0AD6F3C41680DF3900E13802 /* GVUserDefaults+Properties.m in Sources */,
 				0AD6F3F21681BEDF00E13802 /* ViewController.m in Sources */,
 				0AD6F3F71681C17300E13802 /* CodeTimestamps.m in Sources */,
+				96DB5E89168EFCD400AAF3FA /* MySettings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +331,7 @@
 			files = (
 				0AD6F38B1680DCD400E13802 /* ExampleTests.m in Sources */,
 				0A0AA2A61681314800F83F09 /* NoPrefixTests.m in Sources */,
+				96DB5E8A168EFCD400AAF3FA /* MySettings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,33 +7,34 @@
 //
 
 #import "ViewController.h"
-#import "GVUserDefaults+Properties.h"
 #import "CodeTimestamps.h"
+#import "MySettings.h"
+
+@interface ViewController () {
+	
+	__weak IBOutlet UITextField *_usernameTextField;
+	__weak IBOutlet UITextField *_passwordTextField;
+}
+
+@end
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 
-    NSString *test;
+	MySettings *settings = [MySettings settings];
+	_usernameTextField.text = settings.username;
+	_passwordTextField.text = settings.password;
+}
 
-    LogTimestamp;
-
-    test = [[NSUserDefaults standardUserDefaults] objectForKey:@"NSUSerDefault:userName"];
-
-    LogTimestamp;
-
-    test = [GVUserDefaults standardUserDefaults].userName;
-
-    LogTimestamp;
-
-    [[NSUserDefaults standardUserDefaults] setObject:@"Hello!" forKey:@"NSUSerDefault:userName"];
-
-    LogTimestamp;
-
-    [GVUserDefaults standardUserDefaults].userName = @"Hello!";
-
-    LogTimestamp;
+- (IBAction)_saveButtonHandler:(id)sender
+{
+	MySettings *settings = [MySettings settings];
+	settings.username = _usernameTextField.text.length ? _usernameTextField.text : nil;
+	settings.password = _passwordTextField.text.length ? _passwordTextField.text : nil;
+	[settings save];
 }
 
 @end
