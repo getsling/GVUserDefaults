@@ -43,13 +43,13 @@
     return key;
 }
 
-id accessorGetter(id self, SEL _cmd) {
+id accessorGetter(GVUserDefaults *self, SEL _cmd) {
     NSString *key = NSStringFromSelector(_cmd);
     key = [self _transformKey:key];
     return [[NSUserDefaults standardUserDefaults] objectForKey:key];
 }
 
-void accessorSetter(id self, SEL _cmd, id newValue) {
+void accessorSetter(GVUserDefaults *self, SEL _cmd, id newValue) {
     NSString *method = NSStringFromSelector(_cmd);
     NSString *key = [[method stringByReplacingCharactersInRange:NSMakeRange(0, 3) withString:@""] stringByReplacingOccurrencesOfString:@":" withString:@""];
     key = [key stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[key substringToIndex:1] lowercaseString]];
