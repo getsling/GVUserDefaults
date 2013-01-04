@@ -14,14 +14,8 @@
 - (void)setUp {
     [super setUp];
 
-    NSDictionary *defaults = @{
-        @"NSUserDefaultUserName": @"default",
-        @"NSUserDefaultUserId": @1
-    };
-
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NSUserDefaultUserName"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NSUserDefaultUserId"];
-    [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
 }
 
 - (void)tearDown {

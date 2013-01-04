@@ -12,14 +12,9 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    NSDictionary *defaults = @{
-        @"NSUserDefaultUserName": @"default",
-        @"NSUserDefaultUserId": @1
-    };
-
+    // Removing it for debugging, starting with a clean slate every time
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NSUserDefaultUserName"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NSUserDefaultUserId"];
-    [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];

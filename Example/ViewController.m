@@ -19,21 +19,24 @@
 
     LogTimestamp;
 
-    test = [[NSUserDefaults standardUserDefaults] objectForKey:@"NSUSerDefault:userName"];
-
+    test = [[NSUserDefaults standardUserDefaults] objectForKey:@"NSUserDefaultUserName"];
+    
     LogTimestamp;
 
     test = [GVUserDefaults standardUserDefaults].userName;
+    NSLog(@"userName: %@", test);
 
     LogTimestamp;
 
-    [[NSUserDefaults standardUserDefaults] setObject:@"Hello!" forKey:@"NSUSerDefault:userName"];
+    [[NSUserDefaults standardUserDefaults] setObject:@"Hello!" forKey:@"NSUSerDefaultUserName"];
 
     LogTimestamp;
 
     [GVUserDefaults standardUserDefaults].userName = @"Hello!";
 
     LogTimestamp;
+
+    NSLog(@"userName: %@", [GVUserDefaults standardUserDefaults].userName);
 }
 
 @end

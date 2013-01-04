@@ -35,7 +35,7 @@ The keys in NSUserDefaults are the same name as your properties. If you'd like t
     }
 
 ### Registering defaults
-Registering defaults is done as usual, on NSUserDefaults directly (use the same prefix, if any!).
+Registering defaults can be done as usual, on NSUserDefaults directly (use the same prefix, if any!).
 
     NSDictionary *defaults = @{
         @"NSUserDefaultUserName": @"default",
@@ -43,6 +43,15 @@ Registering defaults is done as usual, on NSUserDefaults directly (use the same 
     };
 
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
+
+However, it's a lot easier to create a setupDefaults method on the category, which takes care of the transformed keys automatically:
+
+    - (NSDictionary *)setupDefaults {
+        return @{
+            @"userName": @"default",
+            @"userId": @1
+        };
+    }
 
 
 ### Performance

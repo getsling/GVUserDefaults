@@ -18,11 +18,28 @@
     return sharedInstance;
 }
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        if ([self respondsToSelector:@selector(setupDefaults)]) {
+            NSDictionary *defaults = [self performSelector:@selector(setupDefaults)];
+            NSMutableDictionary *mutableDefaults = [NSMutableDictionary dictionaryWithCapacity:[defaults count]];
+            for (NSString *key in defaults) {
+                id value = [defaults objectForKey:key];
+                NSString *transformedKey = [self _transformKey:key];
+                [mutableDefaults setObject:value forKey:transformedKey];
+            }
+            [[NSUserDefaults standardUserDefaults] registerDefaults:mutableDefaults];
+        }
+    }
+    return self;
+}
+
 + (BOOL)resolveInstanceMethod:(SEL)aSEL {
     NSString *method = NSStringFromSelector(aSEL);
 
-    if ([method isEqualToString:@"transformKey"]) {
-        // Prevent endless loop for possibly non-existing prefix method
+    if ([method isEqualToString:@"transformKey"] || [method isEqualToString:@"setupDefaults"]) {
+        // Prevent endless loop for optional (and missing) category methods
         return [super resolveInstanceMethod:aSEL];
     }
 
