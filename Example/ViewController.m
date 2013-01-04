@@ -20,7 +20,7 @@
     LogTimestamp;
 
     test = [[NSUserDefaults standardUserDefaults] objectForKey:@"NSUserDefaultUserName"];
-    
+
     LogTimestamp;
 
     test = [GVUserDefaults standardUserDefaults].userName;
