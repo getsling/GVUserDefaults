@@ -1,3 +1,6 @@
+0.4.1 - January 7, 2013
+- Fix endless loop if no transformKey: method was present
+
 0.4.0 - January 5, 2013
 - Added the setupDefaults method for easier registering of defaults
 
