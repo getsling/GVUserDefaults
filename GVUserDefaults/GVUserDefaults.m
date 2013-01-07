@@ -38,7 +38,7 @@
 + (BOOL)resolveInstanceMethod:(SEL)aSEL {
     NSString *method = NSStringFromSelector(aSEL);
 
-    if ([method isEqualToString:@"transformKey"] || [method isEqualToString:@"setupDefaults"]) {
+    if ([method isEqualToString:@"transformKey:"] || [method isEqualToString:@"setupDefaults"]) {
         // Prevent endless loop for optional (and missing) category methods
         return [super resolveInstanceMethod:aSEL];
     }
