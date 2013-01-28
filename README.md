@@ -9,12 +9,18 @@ Create a category on `GVUserDefaults`, add some properties in the .h file and ma
     @interface GVUserDefaults (Properties)
     @property (nonatomic, weak) NSString *userName;
     @property (nonatomic, weak) NSNumber *userId;
+    @property (nonatomic) NSInteger integerValue;
+    @property (nonatomic) BOOL boolValue;
+    @property (nonatomic) float floatValue;
     @end
 
     // .m
     @implementation GVUserDefaults (Properties)
     @dynamic userName;
     @dynamic userId;
+    @dynamic integerValue;
+    @dynamic boolValue;
+    @dynamic floatValue;
     @end
 
 Now, instead of using `[[NSUserDefaults standardUserDefaults] objectForKey:@"userName"]`, you can simply use `[GVUserDefaults standardUserDefaults].userName`.
@@ -23,8 +29,6 @@ You can even save defaults by setting the property:
 
     [GVUserDefaults standardUserDefaults].userName = @"myusername";
 
-### Objects only
-At this moment only objects can be stored, so no integers or booleans. Just wrap them in an NSNumber.
 
 ### Key prefix
 The keys in NSUserDefaults are the same name as your properties. If you'd like to prefix or alter them, add a `transformKey:` method to your category. For example, to turn "userName" into "NSUserDefaultUserName":
@@ -78,3 +82,7 @@ GVUserDefaults is an open source project and your contribution is very much appr
 
 ## License
 GVUserDefaults is available under the MIT license. See the LICENSE file for more info.
+
+
+## Thanks
+A huge thank you goes to [ADVUserDefaults](https://github.com/advantis/ADVUserDefaults) for its method of creating accessors for primitive types.
