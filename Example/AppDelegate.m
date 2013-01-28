@@ -13,8 +13,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Removing it for debugging, starting with a clean slate every time
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NSUserDefaultUserName"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NSUserDefaultUserId"];
+    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
