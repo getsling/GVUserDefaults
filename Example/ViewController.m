@@ -115,6 +115,36 @@
     NSLog(@"floatValue: %f", [[NSUserDefaults standardUserDefaults] floatForKey:@"NSUserDefaultFloatValue"]);
     NSLog(@"floatValue OBJECT: %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"NSUserDefaultFloatValue"]);
     NSLog(@"--------------------");
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    LogTimestamp;
+
+    NSString *value;
+
+    for (int i=0; i<4; i++) {
+        value = [[NSUserDefaults standardUserDefaults] objectForKey:@"NSUserDefaultUserName"];
+    }
+
+    LogTimestamp;
+
+    for (int i=0; i<4; i++) {
+        value = [GVUserDefaults standardUserDefaults].userName;
+    }
+
+    LogTimestamp;
+
+    for (int i=0; i<4; i++) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"Test 3" forKey:@"NSUserDefaultUserName"];
+    }
+
+    LogTimestamp;
+
+    for (int i=0; i<4; i++) {
+        [GVUserDefaults standardUserDefaults].userName = @"Test 3";
+    }
+
+    LogTimestamp;
 }
 
 @end
