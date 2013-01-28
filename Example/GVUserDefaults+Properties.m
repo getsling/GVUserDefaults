@@ -10,10 +10,19 @@
 
 @implementation GVUserDefaults (Properties)
 
+@dynamic userName;
+@dynamic userId;
+@dynamic integerValue;
+@dynamic boolValue;
+@dynamic floatValue;
+
 - (NSDictionary *)setupDefaults {
     return @{
         @"userName": @"default",
-        @"userId": @1
+        @"userId": @1,
+        @"integerValue": @123,
+        @"boolValue": @YES,
+        @"floatValue": @12.3,
     };
 }
 
@@ -21,8 +30,5 @@
     key = [key stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[key substringToIndex:1] uppercaseString]];
     return [NSString stringWithFormat:@"NSUserDefault%@", key];
 }
-
-@dynamic userName;
-@dynamic userId;
 
 @end
