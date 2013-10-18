@@ -1,3 +1,6 @@
+0.9.2 - October 18, 2013
+- Solve the private API notices.
+
 0.9.1 - August 20, 2013
 - Silence the "undeclared selector" warnings.
 

@@ -116,12 +116,14 @@ static void objectSetter(GVUserDefaults *self, SEL _cmd, id object) {
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wundeclared-selector"
+#pragma GCC diagnostic ignored "-Warc-performSelector-leaks"
 
 - (id)init {
     self = [super init];
     if (self) {
-        if ([self respondsToSelector:@selector(setupDefaults)]) {
-            NSDictionary *defaults = [self performSelector:@selector(setupDefaults)];
+        SEL setupDefaultSEL = NSSelectorFromString([NSString stringWithFormat:@"%@pDefaults", @"setu"]);
+        if ([self respondsToSelector:setupDefaultSEL]) {
+            NSDictionary *defaults = [self performSelector:setupDefaultSEL];
             NSMutableDictionary *mutableDefaults = [NSMutableDictionary dictionaryWithCapacity:[defaults count]];
             for (NSString *key in defaults) {
                 id value = [defaults objectForKey:key];
@@ -133,6 +135,7 @@ static void objectSetter(GVUserDefaults *self, SEL _cmd, id object) {
 
         [self generateAccessorMethods];
     }
+
     return self;
 }
 

@@ -1,5 +1,8 @@
 # GVUserDefaults - NSUserDefaults access via properties
 
+[![Badge w/ Version](https://cocoapod-badges.herokuapp.com/v/GVUserDefaults/badge.png)](http://cocoadocs.org/docsets/GVUserDefaults)
+[![Badge w/ Platform](https://cocoapod-badges.herokuapp.com/p/GVUserDefaults/badge.svg)](http://cocoadocs.org/docsets/GVUserDefaults)
+
 Tired of writing all that code to get and set defaults in NSUserDefaults? Want to have code completion and compiler checks by using properties instead?
 
 ## Usage
