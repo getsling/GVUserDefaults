@@ -17,6 +17,7 @@
 
 enum TypeEncodings {
     Char                = 'c',
+    Bool                = 'B',
     Short               = 's',
     Int                 = 'i',
     Long                = 'l',
@@ -200,6 +201,7 @@ static void objectSetter(GVUserDefaults *self, SEL _cmd, id object) {
                 setterImp = (IMP)longLongSetter;
                 break;
 
+            case Bool:
             case Char:
                 getterImp = (IMP)boolGetter;
                 setterImp = (IMP)boolSetter;
