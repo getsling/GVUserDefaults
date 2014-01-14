@@ -15,6 +15,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [[GVUserDefaults standardUserDefaults] addObserver:self forKeyPath:@"boolValue" options:NSKeyValueObservingOptionNew context:nil];
+
     NSLog(@"Should be null:");
     NSLog(@"userName: %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"NSUserDefaultUserName"]);
     NSLog(@"--------------------");
@@ -145,6 +147,10 @@
     }
 
     LogTimestamp;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    NSLog(@"keyPath: %@", keyPath);
 }
 
 @end

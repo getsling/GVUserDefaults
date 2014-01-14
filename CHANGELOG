@@ -1,3 +1,6 @@
+0.9.3 - October 24, 2013
+- Added B property type for bool (needed for arm64).
+
 0.9.2 - October 18, 2013
 - Solve the private API notices.
 
