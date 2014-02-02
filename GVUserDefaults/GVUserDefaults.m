@@ -64,7 +64,7 @@ static void boolSetter(GVUserDefaults *self, SEL _cmd, bool value) {
 
 static int integerGetter(GVUserDefaults *self, SEL _cmd) {
     NSString *key = [self defaultsKeyForSelector:_cmd];
-    return [[NSUserDefaults standardUserDefaults] integerForKey:key];
+    return (int)[[NSUserDefaults standardUserDefaults] integerForKey:key];
 }
 
 static void integerSetter(GVUserDefaults *self, SEL _cmd, int value) {
