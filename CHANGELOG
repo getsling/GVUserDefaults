@@ -1,3 +1,6 @@
+0.9.4 - February 2, 2014
+- Fixed compiler warning (https://github.com/gangverk/GVUserDefaults/pull/11)
+
 0.9.3 - October 24, 2013
 - Added B property type for bool (needed for arm64).
 
