@@ -1,3 +1,6 @@
+0.9.5 - July 29, 2014
+- Use instancetype instead of hardcoded class (https://github.com/gangverk/GVUserDefaults/pull/14)
+
 0.9.4 - February 2, 2014
 - Fixed compiler warning (https://github.com/gangverk/GVUserDefaults/pull/11)
 
