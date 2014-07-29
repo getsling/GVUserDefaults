@@ -108,7 +108,7 @@ static void objectSetter(GVUserDefaults *self, SEL _cmd, id object) {
 
 #pragma mark - Begin
 
-+ (GVUserDefaults *)standardUserDefaults {
++ (instancetype)standardUserDefaults {
     static dispatch_once_t pred;
     static GVUserDefaults *sharedInstance = nil;
     dispatch_once(&pred, ^{ sharedInstance = [[self alloc] init]; });

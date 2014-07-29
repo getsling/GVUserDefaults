@@ -10,6 +10,6 @@
 
 @interface GVUserDefaults : NSObject
 
-+ (GVUserDefaults *)standardUserDefaults;
++ (instancetype)standardUserDefaults;
 
 @end
