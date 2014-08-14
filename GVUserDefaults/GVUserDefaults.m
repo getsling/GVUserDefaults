@@ -50,6 +50,7 @@ static void longLongSetter(GVUserDefaults *self, SEL _cmd, long long value) {
     NSString *key = [self defaultsKeyForSelector:_cmd];
     NSNumber *object = [NSNumber numberWithLongLong:value];
     [[NSUserDefaults standardUserDefaults] setObject:object forKey:key];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 static bool boolGetter(GVUserDefaults *self, SEL _cmd) {
@@ -60,6 +61,7 @@ static bool boolGetter(GVUserDefaults *self, SEL _cmd) {
 static void boolSetter(GVUserDefaults *self, SEL _cmd, bool value) {
     NSString *key = [self defaultsKeyForSelector:_cmd];
     [[NSUserDefaults standardUserDefaults] setBool:value forKey:key];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 static int integerGetter(GVUserDefaults *self, SEL _cmd) {
@@ -70,6 +72,7 @@ static int integerGetter(GVUserDefaults *self, SEL _cmd) {
 static void integerSetter(GVUserDefaults *self, SEL _cmd, int value) {
     NSString *key = [self defaultsKeyForSelector:_cmd];
     [[NSUserDefaults standardUserDefaults] setInteger:value forKey:key];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 static float floatGetter(GVUserDefaults *self, SEL _cmd) {
@@ -80,6 +83,7 @@ static float floatGetter(GVUserDefaults *self, SEL _cmd) {
 static void floatSetter(GVUserDefaults *self, SEL _cmd, float value) {
     NSString *key = [self defaultsKeyForSelector:_cmd];
     [[NSUserDefaults standardUserDefaults] setFloat:value forKey:key];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 static double doubleGetter(GVUserDefaults *self, SEL _cmd) {
@@ -90,6 +94,7 @@ static double doubleGetter(GVUserDefaults *self, SEL _cmd) {
 static void doubleSetter(GVUserDefaults *self, SEL _cmd, double value) {
     NSString *key = [self defaultsKeyForSelector:_cmd];
     [[NSUserDefaults standardUserDefaults] setDouble:value forKey:key];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 static id objectGetter(GVUserDefaults *self, SEL _cmd) {
@@ -104,6 +109,7 @@ static void objectSetter(GVUserDefaults *self, SEL _cmd, id object) {
     } else {
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
     }
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 #pragma mark - Begin
@@ -132,6 +138,7 @@ static void objectSetter(GVUserDefaults *self, SEL _cmd, id object) {
                 [mutableDefaults setObject:value forKey:transformedKey];
             }
             [[NSUserDefaults standardUserDefaults] registerDefaults:mutableDefaults];
+            [[NSUserDefaults standardUserDefaults] synchronize];
         }
 
         [self generateAccessorMethods];
