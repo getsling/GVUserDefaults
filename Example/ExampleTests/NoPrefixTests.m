@@ -42,21 +42,21 @@
 }
 
 - (void)testDefaults {
-    STAssertEqualObjects([GVUserDefaults standardUserDefaults].userName, @"default", nil);
-    STAssertEqualObjects([GVUserDefaults standardUserDefaults].userId, @1, nil);
+    XCTAssertEqualObjects([GVUserDefaults standardUserDefaults].userName, @"default");
+    XCTAssertEqualObjects([GVUserDefaults standardUserDefaults].userId, @1);
 }
 
 - (void)testSetters {
     [GVUserDefaults standardUserDefaults].userName = @"changed";
     [GVUserDefaults standardUserDefaults].userId = @2;
 
-    STAssertEqualObjects([GVUserDefaults standardUserDefaults].userName, @"changed", nil);
-    STAssertEqualObjects([GVUserDefaults standardUserDefaults].userId, @2, nil);
+    XCTAssertEqualObjects([GVUserDefaults standardUserDefaults].userName, @"changed");
+    XCTAssertEqualObjects([GVUserDefaults standardUserDefaults].userId, @2);
 }
 
 - (void)testGetters {
-    STAssertEqualObjects([GVUserDefaults standardUserDefaults].userName, [[NSUserDefaults standardUserDefaults] objectForKey:@"userName"], nil);
-    STAssertEqualObjects([GVUserDefaults standardUserDefaults].userId, [[NSUserDefaults standardUserDefaults] objectForKey:@"userId"], nil);
+    XCTAssertEqualObjects([GVUserDefaults standardUserDefaults].userName, [[NSUserDefaults standardUserDefaults] objectForKey:@"userName"]);
+    XCTAssertEqualObjects([GVUserDefaults standardUserDefaults].userId, [[NSUserDefaults standardUserDefaults] objectForKey:@"userId"]);
 }
 
 @end

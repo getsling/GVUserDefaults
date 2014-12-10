@@ -49,24 +49,24 @@
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     NSLog(@"Should all be 123:");
-    NSLog(@"integerValue: %i", [GVUserDefaults standardUserDefaults].integerValue);
-    NSLog(@"integerValue: %i", [[NSUserDefaults standardUserDefaults] integerForKey:@"NSUserDefaultIntegerValue"]);
+    NSLog(@"integerValue: %li", (long)[GVUserDefaults standardUserDefaults].integerValue);
+    NSLog(@"integerValue: %li", (long)[[NSUserDefaults standardUserDefaults] integerForKey:@"NSUserDefaultIntegerValue"]);
     NSLog(@"integerValue OBJECT: %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"NSUserDefaultIntegerValue"]);
     NSLog(@"--------------------");
 
     [GVUserDefaults standardUserDefaults].integerValue = 789;
 
     NSLog(@"Should all be 789:");
-    NSLog(@"integerValue: %i", [GVUserDefaults standardUserDefaults].integerValue);
-    NSLog(@"integerValue: %i", [[NSUserDefaults standardUserDefaults] integerForKey:@"NSUserDefaultIntegerValue"]);
+    NSLog(@"integerValue: %li", (long)[GVUserDefaults standardUserDefaults].integerValue);
+    NSLog(@"integerValue: %li", (long)[[NSUserDefaults standardUserDefaults] integerForKey:@"NSUserDefaultIntegerValue"]);
     NSLog(@"integerValue OBJECT: %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"NSUserDefaultIntegerValue"]);
     NSLog(@"--------------------");
 
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NSUserDefaultIntegerValue"];
 
     NSLog(@"Should all be 123:");
-    NSLog(@"integerValue: %i", [GVUserDefaults standardUserDefaults].integerValue);
-    NSLog(@"integerValue: %i", [[NSUserDefaults standardUserDefaults] integerForKey:@"NSUserDefaultIntegerValue"]);
+    NSLog(@"integerValue: %li", (long)[GVUserDefaults standardUserDefaults].integerValue);
+    NSLog(@"integerValue: %li", (long)[[NSUserDefaults standardUserDefaults] integerForKey:@"NSUserDefaultIntegerValue"]);
     NSLog(@"integerValue OBJECT: %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"NSUserDefaultIntegerValue"]);
     NSLog(@"--------------------");
 
@@ -74,7 +74,7 @@
 
     NSLog(@"Should all be 1:");
     NSLog(@"boolValue: %i", [GVUserDefaults standardUserDefaults].boolValue);
-    NSLog(@"boolValue: %i", [[NSUserDefaults standardUserDefaults] integerForKey:@"NSUserDefaultBoolValue"]);
+    NSLog(@"boolValue: %li", (long)[[NSUserDefaults standardUserDefaults] integerForKey:@"NSUserDefaultBoolValue"]);
     NSLog(@"boolValue OBJECT: %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"NSUserDefaultBoolValue"]);
     NSLog(@"--------------------");
 
@@ -82,7 +82,7 @@
 
     NSLog(@"Should all be 0:");
     NSLog(@"boolValue: %i", [GVUserDefaults standardUserDefaults].boolValue);
-    NSLog(@"boolValue: %i", [[NSUserDefaults standardUserDefaults] integerForKey:@"NSUserDefaultBoolValue"]);
+    NSLog(@"boolValue: %li", (long)[[NSUserDefaults standardUserDefaults] integerForKey:@"NSUserDefaultBoolValue"]);
     NSLog(@"boolValue OBJECT: %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"NSUserDefaultBoolValue"]);
     NSLog(@"--------------------");
 
@@ -90,7 +90,7 @@
 
     NSLog(@"Should all be 1:");
     NSLog(@"boolValue: %i", [GVUserDefaults standardUserDefaults].boolValue);
-    NSLog(@"boolValue: %i", [[NSUserDefaults standardUserDefaults] integerForKey:@"NSUserDefaultBoolValue"]);
+    NSLog(@"boolValue: %li", (long)[[NSUserDefaults standardUserDefaults] integerForKey:@"NSUserDefaultBoolValue"]);
     NSLog(@"boolValue OBJECT: %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"NSUserDefaultBoolValue"]);
     NSLog(@"--------------------");
 

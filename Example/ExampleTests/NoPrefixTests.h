@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 Gangverk. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface NoPrefixTests : SenTestCase
+@interface NoPrefixTests : XCTestCase
 
 @end
