@@ -62,6 +62,13 @@ However, it's a lot easier to create a setupDefaults method on the category, whi
         };
     }
 
+### NSUserDefaults initWithSuitName support
+Simply create a methods called `suitName` in your category and return the suitName you wish to use:
+
+    - (NSString *)suitName {
+        return @"com.example.mySuitName";
+    }
+
 
 ### Performance
 Performance is nearly identical to using NSUserDefaults directly. We're talking about a difference of 0.05 milliseconds or less.
