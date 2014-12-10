@@ -11,6 +11,7 @@
 
 @interface GVUserDefaults ()
 @property (strong, nonatomic) NSMutableDictionary *mapping;
+@property (strong, nonatomic) NSUserDefaults *userDefaults;
 @end
 
 @implementation GVUserDefaults
@@ -32,6 +33,23 @@ enum TypeEncodings {
     Object              = '@'
 };
 
+- (NSUserDefaults *)userDefaults {
+    if (!_userDefaults) {
+        NSString *suitName = nil;
+        if ([NSUserDefaults instancesRespondToSelector:@selector(initWithSuiteName:)]) {
+            suitName = [self _suitName];
+        }
+
+        if (suitName && suitName.length) {
+            _userDefaults = [[NSUserDefaults alloc] initWithSuiteName:suitName];
+        } else {
+            _userDefaults = [NSUserDefaults standardUserDefaults];
+        }
+    }
+
+    return _userDefaults;
+}
+
 - (NSString *)defaultsKeyForPropertyNamed:(char const *)propertyName {
     NSString *key = [NSString stringWithFormat:@"%s", propertyName];
     return [self _transformKey:key];
@@ -43,66 +61,66 @@ enum TypeEncodings {
 
 static long long longLongGetter(GVUserDefaults *self, SEL _cmd) {
     NSString *key = [self defaultsKeyForSelector:_cmd];
-    return [[[NSUserDefaults standardUserDefaults] objectForKey:key] longLongValue];
+    return [[self.userDefaults objectForKey:key] longLongValue];
 }
 
 static void longLongSetter(GVUserDefaults *self, SEL _cmd, long long value) {
     NSString *key = [self defaultsKeyForSelector:_cmd];
     NSNumber *object = [NSNumber numberWithLongLong:value];
-    [[NSUserDefaults standardUserDefaults] setObject:object forKey:key];
+    [self.userDefaults setObject:object forKey:key];
 }
 
 static bool boolGetter(GVUserDefaults *self, SEL _cmd) {
     NSString *key = [self defaultsKeyForSelector:_cmd];
-    return [[NSUserDefaults standardUserDefaults] boolForKey:key];
+    return [self.userDefaults boolForKey:key];
 }
 
 static void boolSetter(GVUserDefaults *self, SEL _cmd, bool value) {
     NSString *key = [self defaultsKeyForSelector:_cmd];
-    [[NSUserDefaults standardUserDefaults] setBool:value forKey:key];
+    [self.userDefaults setBool:value forKey:key];
 }
 
 static int integerGetter(GVUserDefaults *self, SEL _cmd) {
     NSString *key = [self defaultsKeyForSelector:_cmd];
-    return (int)[[NSUserDefaults standardUserDefaults] integerForKey:key];
+    return (int)[self.userDefaults integerForKey:key];
 }
 
 static void integerSetter(GVUserDefaults *self, SEL _cmd, int value) {
     NSString *key = [self defaultsKeyForSelector:_cmd];
-    [[NSUserDefaults standardUserDefaults] setInteger:value forKey:key];
+    [self.userDefaults setInteger:value forKey:key];
 }
 
 static float floatGetter(GVUserDefaults *self, SEL _cmd) {
     NSString *key = [self defaultsKeyForSelector:_cmd];
-    return [[NSUserDefaults standardUserDefaults] floatForKey:key];
+    return [self.userDefaults floatForKey:key];
 }
 
 static void floatSetter(GVUserDefaults *self, SEL _cmd, float value) {
     NSString *key = [self defaultsKeyForSelector:_cmd];
-    [[NSUserDefaults standardUserDefaults] setFloat:value forKey:key];
+    [self.userDefaults setFloat:value forKey:key];
 }
 
 static double doubleGetter(GVUserDefaults *self, SEL _cmd) {
     NSString *key = [self defaultsKeyForSelector:_cmd];
-    return [[NSUserDefaults standardUserDefaults] doubleForKey:key];
+    return [self.userDefaults doubleForKey:key];
 }
 
 static void doubleSetter(GVUserDefaults *self, SEL _cmd, double value) {
     NSString *key = [self defaultsKeyForSelector:_cmd];
-    [[NSUserDefaults standardUserDefaults] setDouble:value forKey:key];
+    [self.userDefaults setDouble:value forKey:key];
 }
 
 static id objectGetter(GVUserDefaults *self, SEL _cmd) {
     NSString *key = [self defaultsKeyForSelector:_cmd];
-    return [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    return [self.userDefaults objectForKey:key];
 }
 
 static void objectSetter(GVUserDefaults *self, SEL _cmd, id object) {
     NSString *key = [self defaultsKeyForSelector:_cmd];
     if (object) {
-        [[NSUserDefaults standardUserDefaults] setObject:object forKey:key];
+        [self.userDefaults setObject:object forKey:key];
     } else {
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
+        [self.userDefaults removeObjectForKey:key];
     }
 }
 
@@ -119,7 +137,7 @@ static void objectSetter(GVUserDefaults *self, SEL _cmd, id object) {
 #pragma GCC diagnostic ignored "-Wundeclared-selector"
 #pragma GCC diagnostic ignored "-Warc-performSelector-leaks"
 
-- (id)init {
+- (instancetype)init {
     self = [super init];
     if (self) {
         SEL setupDefaultSEL = NSSelectorFromString([NSString stringWithFormat:@"%@pDefaults", @"setu"]);
@@ -131,7 +149,7 @@ static void objectSetter(GVUserDefaults *self, SEL _cmd, id object) {
                 NSString *transformedKey = [self _transformKey:key];
                 [mutableDefaults setObject:value forKey:transformedKey];
             }
-            [[NSUserDefaults standardUserDefaults] registerDefaults:mutableDefaults];
+            [self.userDefaults registerDefaults:mutableDefaults];
         }
 
         [self generateAccessorMethods];
@@ -146,6 +164,14 @@ static void objectSetter(GVUserDefaults *self, SEL _cmd, id object) {
     }
 
     return key;
+}
+
+- (NSString *)_suitName {
+    if ([self respondsToSelector:@selector(suitName)]) {
+        return [self performSelector:@selector(suitName)];
+    }
+
+    return nil;
 }
 
 #pragma GCC diagnostic pop

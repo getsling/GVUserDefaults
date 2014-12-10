@@ -1,3 +1,6 @@
+1.0.0 - December 10, 2014
+- Added support for NSUserDefaults's initWithSuitName
+
 0.9.5 - July 29, 2014
 - Use instancetype instead of hardcoded class (https://github.com/gangverk/GVUserDefaults/pull/14)
 

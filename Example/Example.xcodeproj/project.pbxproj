@@ -11,7 +11,6 @@
 		0AD6F3601680DCD400E13802 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD6F35F1680DCD400E13802 /* UIKit.framework */; };
 		0AD6F3621680DCD400E13802 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD6F3611680DCD400E13802 /* Foundation.framework */; };
 		0AD6F3641680DCD400E13802 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD6F3631680DCD400E13802 /* CoreGraphics.framework */; };
-		0AD6F37E1680DCD400E13802 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD6F37D1680DCD400E13802 /* SenTestingKit.framework */; };
 		0AD6F37F1680DCD400E13802 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD6F35F1680DCD400E13802 /* UIKit.framework */; };
 		0AD6F3801680DCD400E13802 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD6F3611680DCD400E13802 /* Foundation.framework */; };
 		0AD6F3881680DCD400E13802 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AD6F3861680DCD400E13802 /* InfoPlist.strings */; };
@@ -50,7 +49,6 @@
 		0AD6F3611680DCD400E13802 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0AD6F3631680DCD400E13802 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		0AD6F37C1680DCD400E13802 /* ExampleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0AD6F37D1680DCD400E13802 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		0AD6F3851680DCD400E13802 /* ExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ExampleTests-Info.plist"; sourceTree = "<group>"; };
 		0AD6F3871680DCD400E13802 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0AD6F3891680DCD400E13802 /* ExampleTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExampleTests.h; sourceTree = "<group>"; };
@@ -93,7 +91,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AD6F37E1680DCD400E13802 /* SenTestingKit.framework in Frameworks */,
 				0AD6F37F1680DCD400E13802 /* UIKit.framework in Frameworks */,
 				0AD6F3801680DCD400E13802 /* Foundation.framework in Frameworks */,
 			);
@@ -131,7 +128,6 @@
 				0AD6F35F1680DCD400E13802 /* UIKit.framework */,
 				0AD6F3611680DCD400E13802 /* Foundation.framework */,
 				0AD6F3631680DCD400E13802 /* CoreGraphics.framework */,
-				0AD6F37D1680DCD400E13802 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -235,7 +231,7 @@
 			name = ExampleTests;
 			productName = ExampleTests;
 			productReference = 0AD6F37C1680DCD400E13802 /* ExampleTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -243,6 +239,7 @@
 		0AD6F3521680DCD400E13802 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0610;
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = Gangverk;
 			};
@@ -444,13 +441,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example-Prefix.pch";
 				INFOPLIST_FILE = "ExampleTests/ExampleTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -461,13 +458,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example/Example-Prefix.pch";
 				INFOPLIST_FILE = "ExampleTests/ExampleTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
