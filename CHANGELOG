@@ -1,5 +1,8 @@
+1.0.1 - April 7, 2015
+- Fixed suitName typo, please rename your method to suiteName
+
 1.0.0 - December 10, 2014
-- Added support for NSUserDefaults's initWithSuitName
+- Added support for NSUserDefaults's initWithSuiteName
 
 0.9.5 - July 29, 2014
 - Use instancetype instead of hardcoded class (https://github.com/gangverk/GVUserDefaults/pull/14)

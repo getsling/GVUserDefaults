@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "GVUserDefaults"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "NSUserDefaults access via properties."
   s.homepage     = "https://github.com/gangverk/GVUserDefaults"
   s.license      = 'MIT'

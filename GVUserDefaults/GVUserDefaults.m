@@ -35,13 +35,13 @@ enum TypeEncodings {
 
 - (NSUserDefaults *)userDefaults {
     if (!_userDefaults) {
-        NSString *suitName = nil;
+        NSString *suiteName = nil;
         if ([NSUserDefaults instancesRespondToSelector:@selector(initWithSuiteName:)]) {
-            suitName = [self _suitName];
+            suiteName = [self _suiteName];
         }
 
-        if (suitName && suitName.length) {
-            _userDefaults = [[NSUserDefaults alloc] initWithSuiteName:suitName];
+        if (suiteName && suiteName.length) {
+            _userDefaults = [[NSUserDefaults alloc] initWithSuiteName:suiteName];
         } else {
             _userDefaults = [NSUserDefaults standardUserDefaults];
         }
@@ -166,9 +166,14 @@ static void objectSetter(GVUserDefaults *self, SEL _cmd, id object) {
     return key;
 }
 
-- (NSString *)_suitName {
+- (NSString *)_suiteName {
+    // Backwards compatibility (v 1.0.0)
     if ([self respondsToSelector:@selector(suitName)]) {
         return [self performSelector:@selector(suitName)];
+    }
+
+    if ([self respondsToSelector:@selector(suiteName)]) {
+        return [self performSelector:@selector(suiteName)];
     }
 
     return nil;
