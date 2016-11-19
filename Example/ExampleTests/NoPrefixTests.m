@@ -19,7 +19,7 @@
 @dynamic userId;
 @end
 
-
+#warning Before running this test, you should comment out the "transformKey:" method in GVUserDefaults+Properties.m file
 @implementation NoPrefixTests
 
 - (void)setUp {
