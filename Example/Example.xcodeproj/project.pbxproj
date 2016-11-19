@@ -48,7 +48,7 @@
 		0AD6F35F1680DCD400E13802 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0AD6F3611680DCD400E13802 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0AD6F3631680DCD400E13802 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		0AD6F37C1680DCD400E13802 /* ExampleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0AD6F37C1680DCD400E13802 /* ExampleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ExampleTests.octest; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AD6F3851680DCD400E13802 /* ExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ExampleTests-Info.plist"; sourceTree = "<group>"; };
 		0AD6F3871680DCD400E13802 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0AD6F3891680DCD400E13802 /* ExampleTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExampleTests.h; sourceTree = "<group>"; };
@@ -221,7 +221,6 @@
 				0AD6F3771680DCD400E13802 /* Sources */,
 				0AD6F3781680DCD400E13802 /* Frameworks */,
 				0AD6F3791680DCD400E13802 /* Resources */,
-				0AD6F37A1680DCD400E13802 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -286,22 +285,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		0AD6F37A1680DCD400E13802 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0AD6F3571680DCD400E13802 /* Sources */ = {
