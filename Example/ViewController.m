@@ -17,7 +17,7 @@
 
     [[GVUserDefaults standardUserDefaults] addObserver:self forKeyPath:@"boolValue" options:NSKeyValueObservingOptionNew context:nil];
 
-    NSLog(@"Should be null:");
+    NSLog(@"Should be default:");
     NSLog(@"userName: %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"NSUserDefaultUserName"]);
     NSLog(@"--------------------");
 
