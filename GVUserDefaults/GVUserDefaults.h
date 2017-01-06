@@ -11,5 +11,7 @@
 @interface GVUserDefaults : NSObject
 
 + (instancetype)standardUserDefaults;
++ (BOOL)ignoreSynthesizedProperties;
++ (NSArray<NSString *> *)ignoredKeys;
 
 @end

@@ -133,6 +133,14 @@ static void objectSetter(GVUserDefaults *self, SEL _cmd, id object) {
     return sharedInstance;
 }
 
++ (BOOL)ignoreSynthesizedProperties {
+    return NO;
+}
+
++ (NSArray<NSString *> *)ignoredKeys {
+    return nil;
+}
+
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wundeclared-selector"
 #pragma GCC diagnostic ignored "-Warc-performSelector-leaks"
@@ -192,6 +200,11 @@ static void objectSetter(GVUserDefaults *self, SEL _cmd, id object) {
         const char *name = property_getName(property);
         const char *attributes = property_getAttributes(property);
 
+        if ((void *)(strstr(attributes, ",D")-attributes) == NULL
+            || ([self.class ignoredKeys] != nil
+                && [[self.class ignoredKeys] containsObject:[[NSString alloc] initWithUTF8String:name]])) {
+            continue;
+        }
         char *getter = strstr(attributes, ",G");
         if (getter) {
             getter = strdup(getter + 2);
