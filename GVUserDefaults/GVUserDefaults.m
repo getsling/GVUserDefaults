@@ -112,16 +112,12 @@ static void doubleSetter(GVUserDefaults *self, SEL _cmd, double value) {
 
 static id objectGetter(GVUserDefaults *self, SEL _cmd) {
     NSString *key = [self defaultsKeyForSelector:_cmd];
-    return [self.userDefaults objectForKey:key];
+    return [self readObjectForKey:key];
 }
 
 static void objectSetter(GVUserDefaults *self, SEL _cmd, id object) {
     NSString *key = [self defaultsKeyForSelector:_cmd];
-    if (object) {
-        [self.userDefaults setObject:object forKey:key];
-    } else {
-        [self.userDefaults removeObjectForKey:key];
-    }
+    [self saveObject:object forKey:key];
 }
 
 #pragma mark - Begin
@@ -275,5 +271,86 @@ static void objectSetter(GVUserDefaults *self, SEL _cmd, id object) {
 
     free(properties);
 }
+
+- (void)saveObject:(id)obj forKey:(NSString *)key
+{
+    [self.userDefaults removeObjectForKey:key];
+    
+    if (!obj) {
+        return;
+    }
+    
+    id data = [self archiveObject:obj];
+    [self.userDefaults setObject:data forKey:key];
+    [self.userDefaults synchronize];
+}
+
+- (id)readObjectForKey:(NSString *)key
+{
+    id data = [self.userDefaults objectForKey:key];
+    return [self unarchiveObject:data];
+}
+
+
+- (id)archiveObject:(id)object {
+    if (!object) {
+        return nil;
+    }
+    //     NSData, NSString, NSNumber, NSDate, NSArray, or NSDictionary.
+    if ([object isKindOfClass:NSArray.class]) {
+        NSMutableArray *destination = [NSMutableArray array];
+        for (id item in object) {
+            [destination addObject:[self archiveObject:item]];
+        }
+        return destination;
+    } else if ([object isKindOfClass:NSDictionary.class]) {
+        NSMutableDictionary *destination = [NSMutableDictionary dictionary];
+        [object enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+            [destination setObject:[self archiveObject:obj] forKey:key];
+        }];
+        return destination;
+    } else if ([object isKindOfClass:NSData.class]
+               || [object isKindOfClass:NSString.class]
+               || [object isKindOfClass:NSNumber.class]
+               || [object isKindOfClass:NSDate.class]) {
+        return object;
+    } else if ([object conformsToProtocol:@protocol(NSCoding)]) {
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:object];
+        return data;
+    } else {
+        return [NSNull null];
+    }
+}
+
+- (id)unarchiveObject:(id)object {
+    if (!object) {
+        return nil;
+    }
+    // the plist supproted type are as follows:
+    // NSData, NSString, NSNumber, NSDate, NSArray, or NSDictionary
+    if ([object isKindOfClass:NSArray.class]) {
+        NSMutableArray *destination = [NSMutableArray array];
+        for (id item in object) {
+            [destination addObject:[self unarchiveObject:item]];
+        }
+        return destination;
+    } else if ([object isKindOfClass:NSDictionary.class]) {
+        NSMutableDictionary *destination = [NSMutableDictionary dictionary];
+        [object enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+            [destination setObject:[self unarchiveObject:obj] forKey:key];
+        }];
+        return destination;
+    } else if ([object isKindOfClass:NSString.class]
+               || [object isKindOfClass:NSNumber.class]
+               || [object isKindOfClass:NSDate.class]) {
+        return object;
+    } else if ([object isKindOfClass:NSData.class]) {
+        id data = [NSKeyedUnarchiver unarchiveObjectWithData:object];
+        return data ? data : object;
+    } else {
+        return [NSNull null];
+    }
+}
+
 
 @end
